@@ -21,7 +21,6 @@ module.exports = {
     client,
     getAllUsers,
 }
-
 async function createUser({ username, password }) {
     try {
         const result = await client.query(`
