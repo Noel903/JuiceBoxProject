@@ -10,12 +10,14 @@ const {
       try {
           console.log("Starting to create users...");
 
-          const albert = await createUser({ username: 'albert', password: 'bertie99' });
-          console.log(albert);
+           await createUser({ username: 'albert', password: 'bertie99' });
+           await createUser({ username: 'sandra', password: '2sandy'});
+           await createUser({ username: 'glamgal', password: 'cirleM' });
+        //   console.log(albert);
 
-          const albertTwo = await createUser({ username: 'albert', password: 'imposter_albert' });
-          console.log(albertTwo);
-          
+        //   const albertTwo = await createUser({ username: 'albert', password: 'imposter_albert' });
+        //   console.log(albertTwo);
+
           console.log("Finished creating users!");
       } catch (error) {
           console.error("Error creating users!");
