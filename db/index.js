@@ -101,9 +101,9 @@ async function createPost({
       RETURNING *;
     `, [authorId, title, content]);
 
-    const tagList = await createTags(tags);
+    // const tagList = await createTags(tags);
 
-    return await addTagsToPost(post.id, tagList);
+    // return await addTagsToPost(post.id, tagList);
   } catch (error) {
     throw error;
   }
@@ -193,8 +193,8 @@ async function getPostsByUser(userId) {
     }
 }
 
-async function createTags(taglist) {
-    if (taglist.length === 0) {
+async function createTags(tagList) {
+    if (tagList.length === 0) {
         return;
     }
 
@@ -202,7 +202,7 @@ async function createTags(taglist) {
         (_, index) => `$${index + 1}`).join('), (');
     
 
-    const selectValues = taglist.map(
+    const selectValues = tagList.map(
         (_, index) => `$${index +1}`).join(', ');
 
     try {
@@ -216,7 +216,7 @@ async function createTags(taglist) {
         SELECT * FROM tags
         WHERE name
         IN (${selectValues});
-        `, taglist);
+        `, tagList);
         return rows;
     }   catch (error) {
         throw error;
